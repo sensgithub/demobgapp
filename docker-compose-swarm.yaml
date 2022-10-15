@@ -5,14 +5,14 @@ services:
         ports:
             - 5080:80
         volumes:
-            - "${PROJECT_ROOT}:/var/www/html:ro"
+            - "$(pwd):/var/www/html:ro"
         networks:
             - app-network
     db:
         image: sens31/demobgapp-db
         networks:
-            - app-network
+            - webapp-network
         environment:
             MYSQL_ROOT_PASSWORD: "12345"
 networks:
-    app-network:
+    webapp-network:
